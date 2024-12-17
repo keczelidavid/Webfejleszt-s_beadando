@@ -1,4 +1,4 @@
-package model;
+package data.entity;
 
 import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;

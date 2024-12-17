@@ -1,5 +1,4 @@
-package model;
-
+package data.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -10,29 +9,27 @@ import lombok.Setter;
 import java.util.Objects;
 
 @Entity
-@Table(name = "Mozi film")
+@Table(name = "Terem")
 @Getter
 @Setter
 @AllArgsConstructor
 @RequiredArgsConstructor
-public class MovieEntity {
+public class RoomEntity {
     @Id
-    private String title;
-    @Column(name = "műfaj", nullable = false)
-    private String genre;
-    @Column(name = "időtartam", nullable = false)
-    private int duration;
+    private String name;
+    private int seatRows;
+    private int seatColumns;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        MovieEntity movie = (MovieEntity) o;
-        return duration == movie.duration && Objects.equals(title, movie.title) && Objects.equals(genre, movie.genre);
+        RoomEntity that = (RoomEntity) o;
+        return seatRows == that.seatRows && seatColumns == that.seatColumns && Objects.equals(name, that.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(title, genre, duration);
+        return Objects.hash(name, seatRows, seatColumns);
     }
 }
