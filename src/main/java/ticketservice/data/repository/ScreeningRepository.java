@@ -1,8 +1,8 @@
-package data.repository;
+package ticketservice.data.repository;
 
-import data.entity.MovieEntity;
-import data.entity.RoomEntity;
-import data.entity.Screening;
+import ticketservice.data.entity.MovieEntity;
+import ticketservice.data.entity.RoomEntity;
+import ticketservice.data.entity.Screening;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

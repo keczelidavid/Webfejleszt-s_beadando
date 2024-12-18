@@ -1,4 +1,4 @@
-package data.entity;
+package ticketservice.data.entity;
 
 import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;

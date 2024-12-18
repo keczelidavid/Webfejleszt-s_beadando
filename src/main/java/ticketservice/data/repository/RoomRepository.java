@@ -1,6 +1,6 @@
-package data.repository;
+package ticketservice.data.repository;
 
-import data.entity.RoomEntity;
+import ticketservice.data.entity.RoomEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
