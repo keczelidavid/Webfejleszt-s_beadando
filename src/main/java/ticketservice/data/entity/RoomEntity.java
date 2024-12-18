@@ -17,7 +17,9 @@ import java.util.Objects;
 public class RoomEntity {
     @Id
     private String name;
+    @Column(name = "ülés sorok száma", nullable = false)
     private int seatRows;
+    @Column(name = "ülés oszlopok száma", nullable = false)
     private int seatColumns;
 
     @Override

@@ -22,13 +22,15 @@ public class Screening {
 
     @ManyToOne
     @MapsId("movieTitle")
+    @Column(name = "mozi film", nullable = false)
     private MovieEntity movie;
 
     @ManyToOne
     @MapsId("roomName")
+    @Column(name = "szoba", nullable = false)
     private RoomEntity room;
+    @Column(name = "vetités kezdete", nullable = false)
     private LocalDateTime screeningTime;
-    private int duration;
 
     public Screening(MovieEntity movie, RoomEntity room, LocalDateTime screeningTime, int duration) {
         if (movie == null || room == null) {
@@ -38,6 +40,5 @@ public class Screening {
         this.room = room;
         this.id = new ScreeningId(movie.getTitle(), room.getName());
         this.screeningTime = screeningTime;
-        this.duration = duration;
     }
 }
