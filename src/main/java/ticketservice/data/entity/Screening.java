@@ -22,12 +22,12 @@ public class Screening {
 
     @ManyToOne
     @MapsId("movieTitle")
-    @Column(name = "mozi film", nullable = false)
+    @JoinColumn(name = "movie_id")
     private MovieEntity movie;
 
     @ManyToOne
     @MapsId("roomName")
-    @Column(name = "szoba", nullable = false)
+    @JoinColumn(name = "room_id")
     private RoomEntity room;
     @Column(name = "vetités kezdete", nullable = false)
     private LocalDateTime screeningTime;
