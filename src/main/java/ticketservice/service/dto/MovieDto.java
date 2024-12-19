@@ -16,6 +16,7 @@ public class MovieDto {
     private String genre;
     private int duration;
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

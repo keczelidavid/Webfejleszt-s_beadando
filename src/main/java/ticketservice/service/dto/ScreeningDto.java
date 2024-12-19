@@ -1,43 +1,34 @@
-package ticketservice.data.entity;
+package ticketservice.service.dto;
 
-
-
-
-import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import ticketservice.data.entity.MovieEntity;
+import ticketservice.data.entity.RoomEntity;
+import ticketservice.data.entity.ScreeningId;
 
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-@Entity
-@Table(name = "Vetítés")
+@AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
-@AllArgsConstructor
-@RequiredArgsConstructor
-public class ScreeningEntity {
+public class ScreeningDto {
 
-    @EmbeddedId
+
     private ScreeningId id;
-
-    @ManyToOne
-    @MapsId("movieTitle")
-    @JoinColumn(name = "movie_id")
     private MovieEntity movie;
-
-    @ManyToOne
-    @MapsId("roomName")
-    @JoinColumn(name = "room_id")
     private RoomEntity room;
-
-    @Column(name = "vetités kezdete")
     private LocalDateTime screeningTime;
+
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        ScreeningEntity that = (ScreeningEntity) o;
+        ScreeningDto that = (ScreeningDto) o;
         return Objects.equals(id, that.id) && Objects.equals(movie, that.movie) && Objects.equals(room, that.room) && Objects.equals(screeningTime, that.screeningTime);
     }
 

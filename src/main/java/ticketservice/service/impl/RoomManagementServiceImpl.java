@@ -12,7 +12,7 @@ import ticketservice.service.dto.RoomDto;
 import java.util.List;
 
 @Service
-public class RoomManagementServiceImp implements RoomManagementService {
+public class RoomManagementServiceImpl implements RoomManagementService {
 
     @Autowired
     RoomRepository repo;
