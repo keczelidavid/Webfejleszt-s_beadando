@@ -21,7 +21,7 @@ public class MovieEntity {
     @Column(name = "műfaj", nullable = false)
     private String genre;
     @Column(name = "időtartam", nullable = false)
-    private int duration;
+    private Integer duration;
 
     @Override
     public boolean equals(Object o) {

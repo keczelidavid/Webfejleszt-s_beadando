@@ -18,9 +18,9 @@ public class RoomEntity {
     @Id
     private String name;
     @Column(name = "ülés sorok száma", nullable = false)
-    private int seatRows;
+    private Integer seatRows;
     @Column(name = "ülés oszlopok száma", nullable = false)
-    private int seatColumns;
+    private Integer seatColumns;
 
     @Override
     public boolean equals(Object o) {

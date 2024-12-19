@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Screening {
+public class ScreeningEntity {
 
     @EmbeddedId
     private ScreeningId id;
@@ -32,7 +32,7 @@ public class Screening {
     @Column(name = "vetités kezdete", nullable = false)
     private LocalDateTime screeningTime;
 
-    public Screening(MovieEntity movie, RoomEntity room, LocalDateTime screeningTime, int duration) {
+    public ScreeningEntity(MovieEntity movie, RoomEntity room, LocalDateTime screeningTime, int duration) {
         if (movie == null || room == null) {
             throw new IllegalArgumentException("Movie and Room must not be null");
         }
