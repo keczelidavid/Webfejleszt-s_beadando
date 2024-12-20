@@ -14,7 +14,6 @@ import ticketservice.data.repository.ScreeningRepository;
 import ticketservice.service.ScreeningManagementService;
 import ticketservice.service.dto.ScreeningDto;
 
-import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.List;
 

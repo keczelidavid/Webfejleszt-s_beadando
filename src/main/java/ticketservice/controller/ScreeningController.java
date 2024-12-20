@@ -43,7 +43,8 @@ public class ScreeningController {
     }
 
     @DeleteMapping("/screening")
-    public void deleteById(@RequestParam ScreeningId id) {
+    public void deleteById(@RequestParam String movieTitle, @RequestParam String roomName) {
+        ScreeningId id = new ScreeningId(movieTitle, roomName);
         service.delete(id);
     }
 
