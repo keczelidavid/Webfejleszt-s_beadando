@@ -29,11 +29,21 @@ public class ScreeningDto {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ScreeningDto that = (ScreeningDto) o;
-        return Objects.equals(id, that.id) && Objects.equals(movie, that.movie) && Objects.equals(room, that.room) && Objects.equals(screeningTime, that.screeningTime);
+        return Objects.equals(id, that.id) && Objects.equals(movie.getTitle(), that.movie.getTitle()) && Objects.equals(room.getName(), that.room.getName()) && Objects.equals(screeningTime, that.screeningTime);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(id, movie, room, screeningTime);
+    }
+
+    @Override
+    public String toString() {
+        return "ScreeningDto{" +
+                "id=" + id +
+                ", movie=" + movie +
+                ", room=" + room +
+                ", screeningTime=" + screeningTime +
+                '}';
     }
 }

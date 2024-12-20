@@ -14,6 +14,7 @@ import ticketservice.data.repository.ScreeningRepository;
 import ticketservice.service.ScreeningManagementService;
 import ticketservice.service.dto.ScreeningDto;
 
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -35,22 +36,27 @@ public class ScreeningManagementServiceImpl implements ScreeningManagementServic
 
     @Override
     public ScreeningDto save(ScreeningDto dto) {
-        // Validate movie is alredy exists
-        MovieEntity movie = movieRepo.findById(dto.getMovie().getTitle())
-                .orElseThrow(() -> new IllegalArgumentException("Movie not found: " + dto.getMovie().getTitle()));
 
-        // Validate room is alredy exists
-        RoomEntity room = roomRepo.findById(dto.getRoom().getName())
-                .orElseThrow(() -> new IllegalArgumentException("Room not found: " + dto.getRoom().getName()));
+        System.out.println("The Given object is: " + dto.toString());
 
-        // If yes then...
+        System.out.println("*****************");
+        System.out.println("Repo found: " + roomRepo.findByName(dto.getRoom().getName()));
+        System.out.println("*****************");
 
-        ScreeningEntity entity = mapper.map(dto, ScreeningEntity.class);
-        entity = screeningRepo.save(entity);
+        if (dto.getMovie().getTitle().equals(movieRepo.findByTitle(dto.getMovie().getTitle())) &&
+        dto.getRoom().getName().equals(roomRepo.findByName(dto.getRoom().getName()))){
+            System.out.println("Room and Movie found");
 
-        ScreeningDto rdto = mapper.map(entity, ScreeningDto.class);
+            ScreeningEntity entity = mapper.map(dto, ScreeningEntity.class);
+            entity = screeningRepo.save(entity);
 
-        return rdto;
+            ScreeningDto rdto = mapper.map(entity, ScreeningDto.class);
+
+            return rdto;
+        }
+        else
+            System.out.println("Room and Movie not found");
+            return null;
     }
 
     @Override
@@ -96,5 +102,13 @@ public class ScreeningManagementServiceImpl implements ScreeningManagementServic
         return mapper.map(szurt, new TypeToken<List<ScreeningDto>>(){}.getType());
     }
 
-
+    @Override
+    public String toString() {
+        return "ScreeningManagementServiceImpl{" +
+                "movieRepo=" + movieRepo +
+                ", roomRepo=" + roomRepo +
+                ", screeningRepo=" + screeningRepo +
+                ", mapper=" + mapper +
+                '}';
+    }
 }

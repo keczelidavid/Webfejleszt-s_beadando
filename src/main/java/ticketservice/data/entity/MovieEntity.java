@@ -35,4 +35,13 @@ public class MovieEntity {
     public int hashCode() {
         return Objects.hash(title, genre, duration);
     }
+
+    @Override
+    public String toString() {
+        return "MovieEntity{" +
+                "title='" + title + '\'' +
+                ", genre='" + genre + '\'' +
+                ", duration=" + duration +
+                '}';
+    }
 }

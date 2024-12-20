@@ -10,7 +10,7 @@ import java.io.Serializable;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Embeddable
+//@Embeddable
 public class ScreeningId implements Serializable {
 
     private String movieTitle;

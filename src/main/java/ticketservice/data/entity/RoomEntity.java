@@ -34,4 +34,13 @@ public class RoomEntity {
     public int hashCode() {
         return Objects.hash(name, seatRows, seatColumns);
     }
+
+    @Override
+    public String toString() {
+        return "RoomEntity{" +
+                "name='" + name + '\'' +
+                ", seatRows=" + seatRows +
+                ", seatColumns=" + seatColumns +
+                '}';
+    }
 }
