@@ -26,13 +26,13 @@ public class RoomEntity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        RoomEntity that = (RoomEntity) o;
-        return seatRows == that.seatRows && seatColumns == that.seatColumns && Objects.equals(name, that.name);
+        RoomEntity room = (RoomEntity) o;
+        return Objects.equals(name, room.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, seatRows, seatColumns);
+        return Objects.hash(name);
     }
 
     @Override

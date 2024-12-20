@@ -28,12 +28,12 @@ public class MovieEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         MovieEntity movie = (MovieEntity) o;
-        return duration == movie.duration && Objects.equals(title, movie.title) && Objects.equals(genre, movie.genre);
+        return Objects.equals(title, movie.title);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(title, genre, duration);
+        return Objects.hash(title);
     }
 
     @Override

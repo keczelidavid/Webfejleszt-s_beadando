@@ -36,27 +36,24 @@ public class ScreeningManagementServiceImpl implements ScreeningManagementServic
 
     @Override
     public ScreeningDto save(ScreeningDto dto) {
-
         System.out.println("The Given object is: " + dto.toString());
 
-        System.out.println("*****************");
-        System.out.println("Repo found: " + roomRepo.findByName(dto.getRoom().getName()));
-        System.out.println("*****************");
+        RoomEntity roomEntity = roomRepo.findByName(dto.getRoom().getName());
+        MovieEntity movieEntity = movieRepo.findByTitle(dto.getMovie().getTitle());
 
-        if (dto.getMovie().getTitle().equals(movieRepo.findByTitle(dto.getMovie().getTitle())) &&
-        dto.getRoom().getName().equals(roomRepo.findByName(dto.getRoom().getName()))){
+        if (roomEntity != null && movieEntity != null &&
+                dto.getMovie().getTitle().equals(movieEntity.getTitle()) &&
+                dto.getRoom().getName().equals(roomEntity.getName())) {
             System.out.println("Room and Movie found");
 
             ScreeningEntity entity = mapper.map(dto, ScreeningEntity.class);
             entity = screeningRepo.save(entity);
 
-            ScreeningDto rdto = mapper.map(entity, ScreeningDto.class);
-
-            return rdto;
-        }
-        else
+            return mapper.map(entity, ScreeningDto.class);
+        } else {
             System.out.println("Room and Movie not found");
             return null;
+        }
     }
 
     @Override
